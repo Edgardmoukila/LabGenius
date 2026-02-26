@@ -1,0 +1,82 @@
+/*  Couleurs des bases et rendu du séquenceur */
+
+:root {
+    --color-a: #ff5f5f; /* Rouge - Adénine */
+    --color-t: #5fafff; /* Bleu - Thymine */
+    --color-c: #ffdb5f; /* Jaune/Or - Cytosine */
+    --color-g: #8bffb0; /* Vert - Guanine */
+    --color-u: #ff8bff; /* Rose/Violet - Uracile (ARN) */
+}
+
+/* Conteneur de la séquence générée */
+.dna-sequence {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px dashed var(--line);
+    margin-top: 15px;
+}
+
+/* Style de chaque petite pilule de base */
+.base-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: #000; /* Texte noir pour contraste sur couleur vive */
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    transition: transform 0.2s;
+}
+
+.base-pill:hover {
+    transform: scale(1.2);
+    z-index: 10;
+}
+
+/* Couleurs spécifiques par classe */
+.base-a { 
+    background-color: var(--color-a); 
+    box-shadow: 0 0 10px rgba(255, 95, 95, 0.4); 
+}
+.base-t { 
+    background-color: var(--color-t); 
+    box-shadow: 0 0 10px rgba(95, 175, 255, 0.4);
+ }
+.base-c { 
+    background-color: var(--color-c); 
+    box-shadow: 0 0 10px rgba(255, 219, 95, 0.4); 
+}
+.base-g { 
+    background-color: var(--color-g); 
+    box-shadow: 0 0 10px rgba(139, 255, 176, 0.4);
+ }
+.base-u { 
+    background-color: var(--color-u); 
+    box-shadow: 0 0 10px rgba(255, 139, 255, 0.4);
+ }
+
+/* Animation de la barre de progression (pour la synthèse) */
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--a1), var(--a2));
+    box-shadow: var(--glow);
+    transition: width 0.1s ease;
+}
